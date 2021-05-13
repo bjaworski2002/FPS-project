@@ -7,7 +7,7 @@ fun main() {
     port(5000)
     get("/") { req, res -> res.redirect("index.html") } // get pliku index.html
     get("/game") { req, res -> startgame(req, res) } // get pliku game.html
-    get("/editor") { req, res -> "editor" } // get pliku editor.html
+    get("/editor") { req, res -> res.redirect("editor.html") } // get pliku editor.html
     // post("/add") {  } // dodanie danych levelu
     // post("/load") {  } // pobranie danych levelu
 
