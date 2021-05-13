@@ -72,6 +72,11 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>1.4.32</version>
         </dependency>
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-kotlin</artifactId>
+            <version>1.0.0-alpha</version>
+        </dependency>
     </dependencies>
 
 </project>
