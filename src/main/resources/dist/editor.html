@@ -121,7 +121,33 @@
             $("#load").click(function () {
                 fetch('/load')
                     .then(response => response.json())
-                    .then(data => console.log(data));
+                    .then(data => {
+                        mapArray = data
+                        $("#jsoninput").val(JSON.stringify(mapArray))
+                        data.map((e) => {
+                            const currentDiv = "#" + (e.id - 1)
+                            let type = ""
+                            switch (e.type) {
+                                case "wall":
+                                    type = "green"
+                                    break;
+                                case "enemy":
+                                    type = "red"
+                                    break;
+                                case "light":
+                                    type = "yellow"
+                                    break;
+                                case "treasure":
+                                    type = "blue"
+                                    break;
+                                default:
+                                    type = "white"
+                                    break;
+                            }
+                            $(currentDiv).css("background-color", type)
+                        })
+                    }
+                    );
             })
             $("#Wall").click(function () {
                 chosenColor = "green"

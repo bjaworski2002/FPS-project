@@ -28,10 +28,9 @@ fun sendData(req: Request, res: Response): String {
 
     res.type("application/json")
     println(Gson().toJson(levelData.levelItems))
-    return Gson().toJson(levelData.levelItems)
-    /*return """
-[{"id":1,"x":0,"y":0,"z":0,"type":"wall"},{"id":21,"x":0,"y":0,"z":2,"type":"wall"},{"id":41,"x":0,"y":0,"z":4,"type":"wall"},{"id":61,"x":0,"y":0,"z":6,"type":"wall"},{"id":81,"x":0,"y":0,"z":8,"type":"wall"},{"id":92,"x":1,"y":0,"z":9,"type":"wall"},{"id":72,"x":1,"y":0,"z":7,"type":"wall"},{"id":52,"x":1,"y":0,"z":5,"type":"wall"},{"id":32,"x":1,"y":0,"z":3,"type":"wall"},{"id":12,"x":1,"y":0,"z":1,"type":"wall"}]    """.trimIndent()
-*/}
+    return if (levelData.levelItems.size > 0) Gson().toJson(levelData.levelItems)
+    else """[{"id":12,"x":1,"y":0,"z":1,"type":"wall"},{"id":22,"x":1,"y":0,"z":2,"type":"wall"},{"id":23,"x":2,"y":0,"z":2,"type":"wall"},{"id":13,"x":2,"y":0,"z":1,"type":"wall"},{"id":17,"x":6,"y":0,"z":1,"type":"enemy"},{"id":27,"x":6,"y":0,"z":2,"type":"enemy"},{"id":28,"x":7,"y":0,"z":2,"type":"enemy"},{"id":18,"x":7,"y":0,"z":1,"type":"enemy"},{"id":77,"x":6,"y":0,"z":7,"type":"treasure"},{"id":87,"x":6,"y":0,"z":8,"type":"treasure"},{"id":88,"x":7,"y":0,"z":8,"type":"treasure"},{"id":72,"x":1,"y":0,"z":7,"type":"light"},{"id":83,"x":2,"y":0,"z":8,"type":"light"},{"id":82,"x":1,"y":0,"z":8,"type":"light"},{"id":78,"x":7,"y":0,"z":7,"type":"treasure"},{"id":73,"x":2,"y":0,"z":7,"type":"light"}]""".trimIndent()
+}
 
 fun addData(req: Request?, res: Response): Request? {
     if (req != null) {
