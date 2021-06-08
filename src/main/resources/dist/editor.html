@@ -123,6 +123,10 @@
                     .then(response => response.json())
                     .then(data => {
                         mapArray = data
+                        for (let i = 1; i <= 100; i++) {
+                            let id = "#" + i;
+                            $(id).css("background-color", "white")
+                        }
                         $("#jsoninput").val(JSON.stringify(mapArray))
                         data.map((e) => {
                             const currentDiv = "#" + (e.id - 1)
